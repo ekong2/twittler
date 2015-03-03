@@ -32,8 +32,8 @@
       $(document).ready(function(){
         $tweets.html('');
         refresh(lastTweetIndex);
-        /*window.setInterval(function(){
-          refresh(lastTweetIndex);}, 2000);*/
+        window.setInterval(function(){
+          refresh(lastTweetIndex);}, 2000);
       $('a').click(function(){displayTimeline(this.text);});
 
       });

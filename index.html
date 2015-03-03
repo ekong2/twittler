@@ -33,11 +33,12 @@
         $tweets.html('');
         refresh(lastTweetIndex);
         window.setInterval(function(){
-          refresh(lastTweetIndex);}, 2000);
+          refresh(0);}, 10000);
       $('a').click(function(){displayTimeline(this.text);});
 
       });
       var refresh = function(startingIndex){
+      	$tweets.empty();
         var index = streams.home.length - 1;
         lastTweetIndex = index;
         while(index >= startingIndex){

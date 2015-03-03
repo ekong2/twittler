@@ -1,0 +1,78 @@
+body, html {
+	margin:0;
+	padding:0;
+	color:#000;
+}
+#wrap {
+	width: 850px;
+	margin: 0 auto;
+}
+
+h1 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 70%;
+    color: #5ea9dd;
+    font-family: 'Righteous', cursive;
+    font-size: 60px;
+}
+
+.main {
+	float: left;
+	width:500px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.main h1 {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 70%;
+	font-family: 'Righteous', cursive;
+	font-size:30px;
+	color: #FA761E;
+}
+
+.timeline {
+	float:right;
+	width:300px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.timeline h1 {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 70%;
+	font-family: 'Righteous', cursive;
+	font-size: 30px;
+	color: #FA761E;
+}
+
+.tweet {
+	border-style: solid;
+	border-color: #f5f8fa;
+	border-width: 4px;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-radius: 15px;
+	margin-bottom: 0px;
+}
+
+.tweet h2 {
+	text-align: center;
+}
+
+.tweet h6 {
+	text-align: right;
+}
+
+.timelineTweets {
+	border-style: solid;
+	border-color: #f5f8fa;
+	border-width: 4px;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-radius: 15px;
+}

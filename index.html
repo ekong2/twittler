@@ -3,24 +3,76 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   </head>
   <body>
+  <div id="wrap">
+  <h1>Twittler (not Twitter)</h1>
+
+  <div class="main">
+    <h1>My Feed</h1>
+    <div id="tweets">
+    </div>
+  </div>
+
+  <div class="timeline">
+    <h1>Timeline</h1>
+    <div id="timelineTweets">
+    </div>
+  </div>
+  </div>
+
     <script>
+      var lastTweetIndex = 0;
+      var $tweets = $('#tweets');
+      var $tlTweets = $('#timelineTweets');
 
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+        $tweets.html('');
+        refresh(lastTweetIndex);
+        /*window.setInterval(function(){
+          refresh(lastTweetIndex);}, 2000);*/
+      $('a').click(function(){displayTimeline(this.text);});
 
       });
+      var refresh = function(startingIndex){
+        var index = streams.home.length - 1;
+        lastTweetIndex = index;
+        while(index >= startingIndex){
+          var tweet = streams.home[index];
+          var $tweet = $('<div class="tweet">' + 
+            '<a href="#"></a>' + 
+            '<h2></h2>' +
+            '<h6></h6>' +
+            '</div>');
+          $tweet.find('a').text('@' + tweet.user);
+          $tweet.find('h2').text(tweet.message)
+          $tweet.find('h6').text(tweet.created_at);
+          $tweet.appendTo($tweets);
+          index -= 1;
+        }
+      };
+
+      var displayTimeline = function(userName){
+        $tlTweets.empty();
+        var stream = streams.users[userName.slice(1)];
+        var index = stream.length -1;
+        while(index >= 0){
+          var tweet = stream[index];
+          var $timelineTweet = $('<div class="timelineTweets">' +
+            '<a href="#"></a>' + 
+            '<h2></h2>' +
+            '<h6></h6>' +
+            '</div>');
+          $timelineTweet.find('a').text('@' + tweet.user);
+          $timelineTweet.find('h2').text(tweet.message)
+          $timelineTweet.find('h6').text(tweet.created_at);
+          $timelineTweet.appendTo($tlTweets);
+          index -= 1;
+        }
+      };
 
     </script>
   </body>
